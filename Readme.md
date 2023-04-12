@@ -14,7 +14,7 @@ date: 12 April 2023
 
 ## Prerequisites
 
-To deploy the resource you will need:
+To deploy the resources you will need:
 
 - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed.
 - The [Terraform CLI (1.2.0+)](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli) installed.
@@ -61,9 +61,9 @@ If you want to deploy to a different environment/AWS account you can modify the 
 # additional module configuration
 ```
 
-NOTE: this approach uses the [provider `assume_role` option](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#assuming-an-iam-role) the Terraform AWS Provider will attempt to assume the specified role using the supplied credentials. This method increases security as credentials are not hardcoded and passed as variables. 
+NOTE: this approach uses the [provider `assume_role`](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#assuming-an-iam-role) option. The Terraform AWS Provider will attempt to assume the specified role using the supplied credentials. This method increases security as credentials are not hardcoded and passed as variables. 
 
-The requirement for this is that IAM roles in the target account (QA, STAGING, PROD) already exist and that the local AWS credentials allow to assume those roles. The IAM role ARNs need to be specified in the file [`provider.tf`](provider.tf) like in the example below:
+The requirement for this is that IAM roles in the target accounts (QA, STAGING, PROD) already exist and that the local AWS credentials allow to assume those roles. The IAM role ARNs need to be specified in the file [`provider.tf`](provider.tf) like in the example below:
 
 ```
 # additional provider configuration
@@ -76,7 +76,7 @@ The requirement for this is that IAM roles in the target account (QA, STAGING, P
 # additional provider configuration
 ```
 
-For more details about this method you can refer to [this tutorial](https://developer.hashicorp.com/terraform/tutorials/aws/aws-assumerole)
+For more details about this method you can refer to [this tutorial](https://developer.hashicorp.com/terraform/tutorials/aws/aws-assumerole).
 
 ---
 
@@ -85,27 +85,27 @@ For more details about this method you can refer to [this tutorial](https://deve
 1 - clone the repository
 
 ```
-$ git clone https://github.com/malatep/genesis_challenge.git
+git clone https://github.com/malatep/genesis_challenge.git
 ```
 
 2 - navigate to the project directory
 ```
-$ cd genesis_challenge
+cd genesis_challenge
 ```
 3 - initialize terraform 
 ```
-$ terraform init
+terraform init
 ```
 4 - plan the deployment
 ```
-$ terraform plan
+terraform plan
 ```
 5 - deploy the infrastructure
 ```
-$ terraform apply
+terraform apply
 ```
 6 - clean up the resources
 ```
-$ terraform destroy
+terraform destroy
 ```
 
